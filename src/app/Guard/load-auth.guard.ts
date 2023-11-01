@@ -3,10 +3,12 @@ import {inject} from '@angular/core'
 
 export const loadAuthGuard: CanActivateFn = (route, state) => {
   const path= route.url[0].path;
-  let roleId=2;
+  const data= Object.values(route.data);
+  let roleId=1;
   const router=inject(Router);
-  console.log(path);
-  if(roleId===1){
+
+  console.log(path,data,state);
+  if(data.includes(roleId)){
     return true;
   }
   else{
