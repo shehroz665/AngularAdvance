@@ -6,22 +6,24 @@ import { ViewComponent } from './products/view/view.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { EditComponent } from './edit/edit.component';
+import { authGuardGuard } from './Guard/auth-guard.guard';
+import { deactiveAuthGuard } from './Guard/deactive-auth.guard';
 
 const routes: Routes = [
   {
     path:'',redirectTo:'home',pathMatch:'full'
   },
   {
-    path:'home',component:ViewhomeComponent
+    path:'home',component:ViewhomeComponent,canActivate:[authGuardGuard]
   },
   {
-    path:'about',component:ViewaboutComponent
+    path:'about',component:ViewaboutComponent,canActivate:[authGuardGuard]
   },
   {
     path:'products',component:ViewComponent,
     children:[
       {
-        path:'edit',component:EditComponent
+        path:'edit',component:EditComponent,canActivate:[authGuardGuard],canDeactivate:[deactiveAuthGuard]
       }
     ]
   },
