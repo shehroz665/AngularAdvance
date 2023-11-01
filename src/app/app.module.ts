@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { EditComponent } from './edit/edit.component';
+import { ProfileModule } from './profile/profile.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { EditComponent } from './edit/edit.component';
     HomeModule,
     AboutModule,
     ProductsModule,
-    NgbModule
+    NgbModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]
