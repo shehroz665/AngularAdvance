@@ -8,6 +8,7 @@ import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { EditComponent } from './edit/edit.component';
 import { authGuardGuard } from './Guard/auth-guard.guard';
 import { deactiveAuthGuard } from './Guard/deactive-auth.guard';
+import { loadAuthGuard } from './Guard/load-auth.guard';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
     ]
   },
   {
-    path:'profile',loadChildren: ()=>import('./profile/profile.module').then((mod)=>mod.ProfileModule),
+    path:'profile',loadChildren: ()=>import('./profile/profile.module').then((mod)=>mod.ProfileModule)
   },
   {
     path:'access-denied',component:AccessDeniedComponent
