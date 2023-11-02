@@ -12,6 +12,8 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { EditComponent } from './edit/edit.component';
 import { ProfileModule } from './profile/profile.module';
+import { ChildComponent } from './child/child.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ProfileModule } from './profile/profile.module';
     HeaderComponent,
     AccessDeniedComponent,
     NopageFoundComponent,
-    EditComponent
+    EditComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { ProfileModule } from './profile/profile.module';
     AboutModule,
     ProductsModule,
     NgbModule,
-    ProfileModule
+    ProfileModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
