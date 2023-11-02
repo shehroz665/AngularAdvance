@@ -14,6 +14,7 @@ import { EditComponent } from './edit/edit.component';
 import { ProfileModule } from './profile/profile.module';
 import { ChildComponent } from './child/child.component';
 import { FormsModule } from '@angular/forms';
+import { ChildnewComponent } from './childnew/childnew.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AccessDeniedComponent,
     NopageFoundComponent,
     EditComponent,
-    ChildComponent
+    ChildComponent,
+    ChildnewComponent
   ],
   imports: [
     BrowserModule,

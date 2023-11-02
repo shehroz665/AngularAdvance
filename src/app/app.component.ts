@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  data:string='';
   topic: string = 'Hello Word';
   title = 'advance';
   num: number = 50;
@@ -47,6 +48,10 @@ export class AppComponent {
   trackByUser(index: number, item: any) {
     // return index;
     return item.id;
+  }
+  onChangeParentData(){
+    console.log(this.data);
+    
   }
 
 }

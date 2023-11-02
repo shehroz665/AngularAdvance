@@ -11,8 +11,18 @@
     </div>
 </div> -->
 
-<div>
+<!-- <div>
     <h1>Topic: Send Data from child to parent</h1>
     <h6>Input Data Coming from child: {{topic}}</h6>
     <app-child (updateTopicEvent)="updateTopic($event)"></app-child>
+</div> -->
+
+<div class="d-flex flex-column">
+    <div class="bg-primary">
+        <h1>Topic: Send Data from  parent to child</h1>
+        <input type="text" [(ngModel)]="data" (ngModelChange)="onChangeParentData()"/>
+    </div>
+    <div class="bg-warning text-black">
+        <app-childnew [parentData]="data" ></app-childnew>
+    </div>
 </div>
