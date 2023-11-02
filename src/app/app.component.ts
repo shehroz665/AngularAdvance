@@ -9,17 +9,16 @@ Chart.register(...registerables);
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  chartInstance:Chart | null=null;
   data:string='';
   topic: string = 'Hello Word';
   title = 'advance';
   num: number = 50;
   status: boolean = false;
   myPromise: any;
-  constructor(){}
-  ngOnInit(): void {
-    this.RenderChart();
-  }
+  chartInstance : Chart | undefined;
+  labels:string[]= ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+  dataArr:number[]=[12, 19, 3, 5, 2, 3];
+  backgroundColor:string[]=['red','blue','yellow','green', 'purple', 'orange'];
   users: any[] = [
   { id: 1, name: 'a' },
   { id: 2, name: 'b' },
@@ -27,24 +26,34 @@ export class AppComponent {
   { id: 4, name: 'd' },
   { id: 5, name: 'e' }
   ];
+  constructor(){}
+  ngOnInit(): void {
+    this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'bar','barChart');
+    this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'pie','pieChart');
+  }
   updateChart(){
+    console.log(this.chartInstance);
+    
     if (this.chartInstance) {
-      this.chartInstance.data.labels = ['New Red', 'New Blue', 'New Yellow', 'New Green', 'New Purple', 'New Orange'];
-      this.chartInstance.data.datasets[0].data = [10, 15, 5, 8, 12, 4];
+      this.chartInstance.data.labels = ['New Red', 'New Blue', 'New Yellow', 'New Green', 'New Purple'];
+      this.chartInstance.data.datasets[0].data = [10, 15, 5, 8, 12];
       this.chartInstance.update();
     }  
+
+
   }
-  RenderChart(){
-   this.chartInstance=  new Chart("barChart", {
-      type: 'bar',
+  RenderChart(labels:string[],dataArr:number[],backgroundColor:string[],charType:any,id:any){
+
+  this.chartInstance=new Chart(id, {
+      type: charType,
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labels,
   
         datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          data: dataArr,
           borderWidth: 1,
-          backgroundColor:['red','blue','yellow','green', 'purple', 'orange'],
+          backgroundColor:backgroundColor,
         }]
       },
       options: {
@@ -54,7 +63,29 @@ export class AppComponent {
           }
         }
       }
-    });    
+    });
+    
+    
+  //  this.chartInstance=  new Chart("barChart", {
+  //     type: 'bar',
+  //     data: {
+  //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  
+  //       datasets: [{
+  //         label: '# of Votes',
+  //         data: [12, 19, 3, 5, 2, 3],
+  //         borderWidth: 1,
+  //         backgroundColor:['red','blue','yellow','green', 'purple', 'orange'],
+  //       }]
+  //     },
+  //     options: {
+  //       scales: {
+  //         y: {
+  //           beginAtZero: true
+  //         }
+  //       }
+  //     }
+  //   });    
   }
   updateTopic(item:string){
     this.topic=item;
