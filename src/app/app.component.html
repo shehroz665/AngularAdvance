@@ -17,7 +17,7 @@
     <app-child (updateTopicEvent)="updateTopic($event)"></app-child>
 </div> -->
 
-<div class="d-flex flex-column">
+<!-- <div class="d-flex flex-column">
     <div class="bg-primary">
         <h1>Topic: Send Data from  parent to child</h1>
         <input type="text" [(ngModel)]="data" (ngModelChange)="onChangeParentData()"/>
@@ -25,4 +25,13 @@
     <div class="bg-warning text-black">
         <app-childnew [parentData]="data" ></app-childnew>
     </div>
+</div> -->
+
+<div class="row">
+    <div class="col-lg-6">
+        <h1>Bar Chart</h1>
+        <button class="btn btn-primary" (click)="updateChart()">Update Chart</button>
+        <canvas id="barChart"></canvas>
+    </div>
+
 </div>
