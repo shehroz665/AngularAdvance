@@ -15,7 +15,13 @@ import { ProfileModule } from './profile/profile.module';
 import { ChildComponent } from './child/child.component';
 import { FormsModule } from '@angular/forms';
 import { ChildnewComponent } from './childnew/childnew.component';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MultiformsComponent } from './multiforms/multiforms.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +30,8 @@ import { ChildnewComponent } from './childnew/childnew.component';
     NopageFoundComponent,
     EditComponent,
     ChildComponent,
-    ChildnewComponent
+    ChildnewComponent,
+    MultiformsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,9 @@ import { ChildnewComponent } from './childnew/childnew.component';
     ProductsModule,
     NgbModule,
     ProfileModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatButtonModule,MatInputModule,MatFormFieldModule,MatStepperModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

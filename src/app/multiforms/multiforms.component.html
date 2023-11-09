@@ -1,0 +1,52 @@
+<form [formGroup]="multiform">
+  <mat-stepper [linear]="isLinear" #stepper>
+
+    <mat-step [stepControl]="detailsForm" label="Fill out your details">
+      <div formGroupName="details" >
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field class="mat-form-field">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First name" formControlName="firstname" >
+        </mat-form-field>
+        <mat-form-field class="mat-form-field">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastname" >
+          </mat-form-field>
+
+        <div>
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="contactForm" label="Fill out your contact details">
+      <div formGroupName="contact">
+        <mat-form-field class="mat-form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" >
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="locationForm" label="Fill out your address">
+        <div formGroupName="location">
+            <mat-form-field class="mat-form-field">
+              <mat-label>phone</mat-label>
+              <input matInput formControlName="phone" >
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" >
+              </mat-form-field>
+            <div>
+              <button mat-raised-button matStepperPrevious>Back</button>
+              <button mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+    </mat-step>
+  </mat-stepper>
+
+</form>
+  
