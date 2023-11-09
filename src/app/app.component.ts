@@ -1,6 +1,7 @@
 import { resolve } from '@angular-devkit/core';
 import { Component } from '@angular/core';
 import { Chart,registerables } from 'chart.js';
+import { ApiService } from './Services/api.service';
 Chart.register(...registerables);
 
 @Component({
@@ -26,7 +27,9 @@ export class AppComponent {
   { id: 4, name: 'd' },
   { id: 5, name: 'e' }
   ];
-  constructor(){}
+  //
+  selectedFile: File | null = null;
+  constructor(private api:ApiService){}
   ngOnInit(): void {
     this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'bar','barChart');
     this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'pie','pieChart');
@@ -117,6 +120,21 @@ export class AppComponent {
   }
   onChangeParentData(){
     console.log(this.data); 
+  }
+  //
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  uploadFile() {
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('formFile', this.selectedFile);
+      this.api.uploadFile('https://localhost:7295/api/auth/file',formData).subscribe((response:any)=> {
+        console.log(response);
+      })
+    } else {
+      console.log('No file selected');
+    }
   }
 
 }

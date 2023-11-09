@@ -22,6 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileModule,
     FormsModule,
     NoopAnimationsModule,
-    MatButtonModule,MatInputModule,MatFormFieldModule,MatStepperModule,ReactiveFormsModule
+    MatButtonModule,MatInputModule,MatFormFieldModule,MatStepperModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
