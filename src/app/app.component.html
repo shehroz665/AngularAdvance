@@ -49,3 +49,4 @@
     <input type="file" (change)="onFileChange($event)" />
     <button (click)="uploadFile()">Upload File</button>
   </div>
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Image">

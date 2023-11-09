@@ -29,8 +29,16 @@ export class AppComponent {
   ];
   //
   selectedFile: File | null = null;
-  constructor(private api:ApiService){}
-  ngOnInit(): void {
+  imageUrl: string | ArrayBuffer | null = null;
+  constructor(private api:ApiService){
+
+  }
+  ngOnInit(): void { 
+    this.api.getFile('https://localhost:7295/api/auth/file').subscribe((response:Blob)=> {
+      //this.selectedFile=response;
+      this.imageUrl = URL.createObjectURL(response);
+      
+    })
     this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'bar','barChart');
     this.RenderChart(this.labels,this.dataArr,this.backgroundColor,'pie','pieChart');
   }
